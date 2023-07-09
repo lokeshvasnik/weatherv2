@@ -1,0 +1,133 @@
+/* Google font */
+
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Rubik", sans-serif;
+}
+
+h1 {
+    color: #363636;
+    font-size: 1.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.app {
+    width: 1000px;
+    margin: 0 auto;
+    margin-top: 4.125rem;
+    border-top: 40px solid #363636;
+    border-radius: 0.5625rem;
+    background: #fff;
+    box-shadow: 1px 5px 13px 5px rgba(0, 0, 0, 0.13);
+}
+
+.input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2.5rem 0;
+}
+
+.app {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 2.5rem 0;
+}
+
+.temp {
+    color: #363636;
+    font-family: Rubik;
+    font-size: 10.9375rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    margin: 0 1.875rem;
+}
+
+ul li {
+    color: #363636;
+    font-family: Rubik;
+    font-size: 2.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    list-style: none;
+    margin: 1rem;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s ease-in-out;
+    padding-bottom: 1.5625rem;
+    cursor: pointer;
+}
+
+.temp {
+    font-size: 10.9375rem !important;
+}
+
+.flex img {
+    width: 12.5rem;
+}
+
+.flex span {
+    font-size: 2.1875rem;
+    margin-right: 12px;
+}
+
+.flex p span {
+    font-size: 1.1875rem;
+}
+
+.flex p {
+    will-change: transform;
+    transition: transform 450ms;
+    cursor: pointer;
+}
+
+.flex p:hover {
+    transition: transform 125ms;
+    transform: translateY(-10px);
+}
+
+input {
+    border: none;
+    font-size: 1.875rem;
+    max-width: 127px;
+    color: #363636;
+    text-decoration: underline;
+}
+
+textarea:focus,
+input:focus {
+    outline: none;
+}
+
+span,
+img {
+    will-change: transform;
+    transition: transform 450ms;
+    cursor: pointer;
+}
+
+span:hover {
+    transition: transform 125ms;
+    transform: translateY(-10px);
+}
+img:hover {
+    transition: transform 125ms;
+    transform: translateY(-10px);
+}
+
+::selection {
+    color: #363636;
+}
