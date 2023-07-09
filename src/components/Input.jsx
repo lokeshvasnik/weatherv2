@@ -1,16 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 
-const Input = ({ setQuerry, description }) => {
+const Input = ({ setQuerry }) => {
     return (
         <div className="input">
             <h1>
                 Right now in{" "}
                 <input
                     onChange={(e) => setQuerry(e.target.value)}
+                    placeholder="your location"
                     type="text"
                     autoFocus
                 />
-                its {description}
             </h1>
         </div>
     );

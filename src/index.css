@@ -6,34 +6,42 @@
     margin: 0;
     padding: 0;
     font-family: "Rubik", sans-serif;
+    color: var(--primary-color);
+}
+:root {
+    --primary-color: #363636;
+    --secondary-color: #4dbfd9;
+    --pure: #fff;
 }
 
+/* Selection of cursor */
+::selection {
+    color: var(--primary-color);
+}
+
+html {
+    background-color: var(--secondary-color);
+}
+
+/* The temp value */
 h1 {
-    color: #363636;
     font-size: 1.875rem;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    text-align: center;
 }
 
+/* The main app */
 .app {
-    width: 1000px;
+    /* width: 62.5rem; */
+    max-width: 60rem;
     margin: 0 auto;
     margin-top: 4.125rem;
-    border-top: 40px solid #363636;
+    border-top: 40px solid var(--primary-color);
     border-radius: 0.5625rem;
-    background: #fff;
+    background: var(--pure);
     box-shadow: 1px 5px 13px 5px rgba(0, 0, 0, 0.13);
-}
-
-.input {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2.5rem 0;
-}
-
-.app {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -41,19 +49,16 @@ h1 {
     padding: 2.5rem 0;
 }
 
+/* The temperature */
 .temp {
-    color: #363636;
-    font-family: Rubik;
-    font-size: 10.9375rem;
     font-style: normal;
     font-weight: 300;
     line-height: normal;
     margin: 0 1.875rem;
+    font-size: 10.9375rem;
 }
 
 ul li {
-    color: #363636;
-    font-family: Rubik;
     font-size: 2.875rem;
     font-style: normal;
     font-weight: 400;
@@ -62,17 +67,14 @@ ul li {
     margin: 1rem;
 }
 
+/* All used class */
 .flex {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     transition: 0.3s ease-in-out;
     padding-bottom: 1.5625rem;
     cursor: pointer;
-}
-
-.temp {
-    font-size: 10.9375rem !important;
 }
 
 .flex img {
@@ -80,31 +82,21 @@ ul li {
 }
 
 .flex span {
-    font-size: 2.1875rem;
     margin-right: 12px;
 }
 
-.flex p span {
-    font-size: 1.1875rem;
+/* Input component */
+.input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2.5rem 0;
 }
-
-.flex p {
-    will-change: transform;
-    transition: transform 450ms;
-    cursor: pointer;
-}
-
-.flex p:hover {
-    transition: transform 125ms;
-    transform: translateY(-10px);
-}
-
+/* Input text */
 input {
     border: none;
     font-size: 1.875rem;
-    max-width: 127px;
-    color: #363636;
-    text-decoration: underline;
+    width: 33%;
 }
 
 textarea:focus,
@@ -112,6 +104,19 @@ input:focus {
     outline: none;
 }
 
+/* Display  */
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.center p span {
+    font-size: 0.875rem;
+}
+/* Hover Effects */
 span,
 img {
     will-change: transform;
@@ -128,6 +133,31 @@ img:hover {
     transform: translateY(-10px);
 }
 
-::selection {
-    color: #363636;
+.flex p {
+    will-change: transform;
+    transition: transform 450ms;
+    cursor: pointer;
+}
+
+.flex p:hover {
+    transition: transform 125ms;
+    transform: translateY(-10px);
+}
+
+/* Mobile Responsive */
+
+@media only screen and (max-width: 900px) {
+    .flex {
+        flex-direction: column;
+    }
+
+    .app {
+        width: 80%; /* Adjust the width as needed */
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .temp {
+        font-size: 6.9rem;
+    }
 }
