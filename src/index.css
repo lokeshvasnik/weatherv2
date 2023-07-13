@@ -116,6 +116,10 @@ input:focus {
 .center p span {
     font-size: 0.875rem;
 }
+
+.small__span {
+    font-size: 1.5rem;
+}
 /* Hover Effects */
 span,
 img {
@@ -153,6 +157,7 @@ img:hover {
 
     .app {
         width: 80%; /* Adjust the width as needed */
+        margin-bottom: 8.125rem;
     }
 }
 

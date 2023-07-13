@@ -9,10 +9,8 @@ const List = ({ data }) => {
             </li>
             <li className="center" title="wind">
                 <span className="material-symbols-outlined">air</span>
-                <p>
-                    {data.wind.speed}
-                    <span>km/h</span>
-                </p>
+                <p>{data.wind.speed}</p>
+                <span className="small__span">km/h</span>
             </li>
             <li className="center" title="max_temp">
                 <span className="material-symbols-outlined">

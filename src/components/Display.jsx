@@ -19,7 +19,9 @@ const Display = ({ data }) => {
             {/* <span>{data ? data.main.temp : ""}</span> */}
             <div className="center" title="temperature">
                 <span className="temp">{data.main.temp}</span>
-                <span>its's {data.weather[0].main}</span>
+                <span className="small__span">
+                    its's {data.weather[0].main}
+                </span>
             </div>
             <ul>
                 <List data={data} />
