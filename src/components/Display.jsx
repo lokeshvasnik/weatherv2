@@ -1,27 +1,17 @@
-import React, { useEffect } from "react";
-import sun from "../assets/sun.svg";
-import umbrella from "../assets/umbrella.svg";
+import React from "react";
 import List from "./List";
+import { fixedCelciesUpdater, iconUrl } from "../services/weatherService";
 
 const Display = ({ data }) => {
-    const weather = data.weather[0].main;
+    // CHANGE THIS CODE LOGIC TO API IMAGE PROVIDED
+    const { details, temp, icon } = data;
 
     return (
         <div className="flex">
-            {weather === "Clouds" ? (
-                <img src={sun} alt="weather" />
-            ) : weather === "Rain" ? (
-                <img src={umbrella} alt="weather" />
-            ) : (
-                <img src={sun} alt="weather" />
-            )}
-
-            {/* <span>{data ? data.main.temp : ""}</span> */}
+            <img src={iconUrl(icon)} alt="error" />
             <div className="center" title="temperature">
-                <span className="temp">{data.main.temp}</span>
-                <span className="small__span">
-                    its's {data.weather[0].main}
-                </span>
+                <span className="temp">{fixedCelciesUpdater(temp)}</span>
+                <span className="small__span">its's {details}</span>
             </div>
             <ul>
                 <List data={data} />

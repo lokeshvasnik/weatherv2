@@ -34,10 +34,9 @@ h1 {
 
 /* The main app */
 .app {
-    /* width: 62.5rem; */
     max-width: 60rem;
     margin: 0 auto;
-    margin-top: 4.125rem;
+    margin-top: 2.125rem;
     border-top: 40px solid var(--primary-color);
     border-radius: 0.5625rem;
     background: var(--pure);
