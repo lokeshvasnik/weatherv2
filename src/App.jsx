@@ -9,7 +9,6 @@ const App = () => {
     const [weather, setWeather] = useState([]);
     const [query, setQuery] = useState("");
     const [isLoading, setIsLoading] = useState(false);
-
     // FUNCTION CALL FROM WEATHER SERVICE
 
     // Fetching weather data

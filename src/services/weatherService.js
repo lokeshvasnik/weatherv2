@@ -31,6 +31,12 @@ const formatCurrentWeather = (data) => {
     if (!data) {
         throw new Error("Weather data is undefined");
     }
+
+    // Check if 'main' and 'weather' properties exist in the 'data' object
+    if (!data.main || !data.weather || data.weather.length === 0) {
+        throw new Error("Invalid weather data format");
+    }
+
     const {
         main: { temp, feels_like, temp_min, temp_max, humidity },
         name,
@@ -55,51 +61,26 @@ const formatCurrentWeather = (data) => {
     };
 };
 
-// Search Params = 'london','lat,'long'
 const getFormattedWeatherData = async (searchParams) => {
-    const formattedCurrentWeather = await getWeatherData(
-        "weather",
-        searchParams
-    )
-        .then(formatCurrentWeather)
-        .catch((err) => {
-            throw new Error(err);
-        });
-
-    return { ...formattedCurrentWeather };
+    try {
+        const weatherData = await getWeatherData("weather", searchParams);
+        const formattedCurrentWeather = formatCurrentWeather(weatherData);
+        return formattedCurrentWeather;
+    } catch (error) {
+        throw new Error(
+            `Error getting formatted weather data: ${error.message}`
+        );
+    }
 };
-
 // ICON URL HANDLER
 const iconUrl = (code) => {
     return `http://openweathermap.org/img/wn/${code}@2x.png`;
 };
 
-// FIXED VALUE
+// FIXED VALUE GENERATOR
 function fixedCelciesUpdater(value) {
     return `${value.toFixed()}°`;
 }
 
 export { iconUrl, fixedCelciesUpdater };
 export default getFormattedWeatherData;
-
-// const { lat, lon } = formattedCurrentWeather;
-// -------------------------------------------------------------------------------
-// const formattedForecastWeather = await getWeatherData("onecall", {
-//     lat,
-//     lon,
-//     exclude: "current,minutely,alerts",
-//     units: searchParams.units,
-// }).then(formatForecastWeather);
-// -------------------------------------------------------------------------------
-// const formatForecastWeather = (data) => {
-//     console.log(data);
-//     let { daily } = data;
-//     daily = daily.slice(1, 4).map((daily) => {
-//         return {
-//             temp: daily.temp.day,
-//             icon: daily.weather[0].icon,
-//         };
-//     });
-
-//     return daily;
-// };
