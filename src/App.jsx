@@ -1,18 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { SyncLoader } from "react-spinners";
-import Input from "./components/Input";
-import Display from "./components/Display";
 import getFormattedWeatherData from "./services/weatherService";
 import "./index.css";
-
+import Weather from "./components/Weather";
+import Map from "./components/Map";
+import { SyncLoader } from "react-spinners";
 const App = () => {
     const [weather, setWeather] = useState([]);
     const [query, setQuery] = useState("");
     const [isLoading, setIsLoading] = useState(false);
-    // FUNCTION CALL FROM WEATHER SERVICE
 
     // Fetching weather data
-
     useEffect(() => {
         const fetchWeatherData = () => {
             try {
@@ -22,7 +19,7 @@ const App = () => {
 
                     setWeather(data);
                     setIsLoading(false);
-                }, 900);
+                }, 1000);
 
                 return () => clearTimeout(debounceData);
             } catch (err) {
@@ -34,21 +31,30 @@ const App = () => {
     }, [query]);
 
     return (
-        <div className="app">
-            <Input setQuery={setQuery} query={query} />
-
-            <div>
+        <>
+            <main>
+                <Weather
+                    setQuery={setQuery}
+                    query={query}
+                    weather={weather}
+                    isLoading={isLoading}
+                />
                 {weather.length === 0 ? (
                     ""
                 ) : query.length === 0 ? (
-                    " "
+                    ""
                 ) : isLoading ? (
-                    <SyncLoader />
+                    <div className="app">
+                        <SyncLoader color="#4dbfd9" />
+                    </div>
                 ) : (
-                    <Display data={weather} />
+                    <Map data={weather} />
                 )}
-            </div>
-        </div>
+            </main>
+            <footer>
+                <p>Made by lokesh vasnik</p>
+            </footer>
+        </>
     );
 };
 

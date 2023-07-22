@@ -43,6 +43,7 @@ const formatCurrentWeather = (data) => {
         weather,
         sys: { country },
         wind: { speed },
+        coord: { lon, lat },
     } = data;
 
     const { main: details, icon } = weather[0];
@@ -54,6 +55,8 @@ const formatCurrentWeather = (data) => {
         temp_min,
         humidity,
         name,
+        lon,
+        lat,
         country,
         details,
         icon,

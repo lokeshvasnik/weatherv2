@@ -29,6 +29,13 @@ const Display = ({ data }) => {
             image = "/mist.svg";
             break;
 
+        case "Haze":
+            image = "/haze.svg";
+            break;
+        case "Drizzle":
+            image = "/drizzle.png";
+            break;
+
         default:
             image = "";
             break;

@@ -1,5 +1,6 @@
 /* Google font */
 
+@import "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400&display=swap");
 
 * {
@@ -8,6 +9,7 @@
     font-family: "Rubik", sans-serif;
     color: var(--primary-color);
 }
+
 :root {
     --primary-color: #363636;
     --secondary-color: #4dbfd9;
@@ -19,7 +21,11 @@
     color: var(--primary-color);
 }
 
-html {
+::-webkit-scrollbar {
+    display: none;
+}
+
+body {
     background-color: var(--secondary-color);
 }
 
@@ -48,6 +54,23 @@ h1 {
     padding: 2.5rem 0;
 }
 
+.map {
+    max-width: 60rem;
+    margin: 0 auto;
+    height: 80vh;
+    margin-top: 2.125rem;
+    margin-bottom: 40px;
+    border-top: 40px solid var(--primary-color);
+    border-radius: 0.5625rem;
+    background: var(--pure);
+    box-shadow: 1px 5px 13px 5px rgba(0, 0, 0, 0.13);
+    border: aqua;
+}
+
+.map__container {
+    height: 100%;
+    border-radius: 0.5625rem;
+}
 /* The temperature */
 .temp {
     font-style: normal;
@@ -145,6 +168,20 @@ img:hover {
 .flex p:hover {
     transition: transform 125ms;
     transform: translateY(-10px);
+}
+
+/* FOOTER */
+
+footer {
+    background-color: #363636;
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer p {
+    color: white;
 }
 
 /* Mobile Responsive */
